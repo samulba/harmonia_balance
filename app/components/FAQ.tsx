@@ -5,28 +5,28 @@ import { Section, Eyebrow } from "./ui"
 
 const ITEMS = [
   {
-    q: "Bist du Ärztin?",
-    a: "Nein. Ich bin keine Ärztin und keine Heilpraktikerin. Ich biete systemische Begleitung an — für Klärung, Reflexion und Orientierung. Es geht nicht um Diagnosen oder medizinische Versorgung.",
+    q: "Bist du Ärztin oder Heilpraktikerin?",
+    a: "Nein. Ich biete systemische Begleitung an — keine medizinische Behandlung und keine Heilkunde. Bei körperlichen Beschwerden geh bitte zuerst zu einer Ärztin.",
   },
   {
     q: "Was kostet eine Sitzung?",
-    a: "Das Angebot richtet sich an Selbstzahler. Die genauen Konditionen für Erstgespräch (90 Min) und Einzelsitzungen (60 Min) bespreche ich gern persönlich mit dir — am einfachsten im unverbindlichen Erstkontakt.",
+    a: "Erstgespräch (90 Min) und Folgesitzungen (60 Min) als Selbstzahler-Praxis. Aktuelle Preise teile ich gern beim Erstkontakt mit.",
   },
   {
-    q: "Übernimmt die Krankenkasse die Kosten?",
-    a: "Nein. Da es sich um keine medizinische oder psychotherapeutische Versorgung handelt, ist dies eine reine Selbstzahler-Leistung. Eine Abrechnung über die Krankenkasse ist nicht möglich.",
+    q: "Übernimmt die Krankenkasse das?",
+    a: "Nein, das ist eine Selbstzahler-Praxis. Private Versicherungen erstatten teilweise — bitte vorab klären.",
   },
   {
     q: "Wie lange dauert eine Begleitung?",
-    a: "Das ist sehr unterschiedlich und ganz dir überlassen. Manche kommen für wenige Sitzungen, andere über einen längeren Zeitraum. Du bestimmst Tempo und Dauer — es gibt keine Mindestlaufzeit.",
+    a: "Das ist ganz unterschiedlich. Manche kommen für ein paar Sitzungen zur Klärung, andere für längere Phasen. Wir entscheiden gemeinsam.",
   },
   {
     q: "Arbeitest du auch mit Paaren oder Familien?",
-    a: "Aktuell biete ich ausschließlich Einzelbegleitung an. So kann ich mich ganz auf dich und dein Anliegen konzentrieren.",
+    a: "Aktuell vor allem mit Einzelpersonen. Für Paare gerne auf Anfrage.",
   },
   {
     q: "Was ist der Unterschied zur Psychotherapie?",
-    a: "Psychotherapie behandelt diagnostizierte Erkrankungen und ist Ärzten und approbierten Psychotherapeuten vorbehalten. Systemische Begleitung ist kein Ersatz dafür — sie unterstützt bei Klärung, Reflexion und Orientierung im Alltag. Bei akuten Beschwerden wende dich bitte an entsprechende Fachstellen.",
+    a: "Psychotherapie ist eine medizinische Heilbehandlung bei diagnostizierten Erkrankungen. Systemische Begleitung ist Klärungsarbeit, kein Heilverfahren. Bei psychischen Erkrankungen ist eine Psychotherapeutin die richtige Adresse.",
   },
 ]
 
@@ -34,24 +34,24 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <Section id="faq" className="bg-teal">
-      <Eyebrow>Fragen — 06</Eyebrow>
-      <h2 className="mb-14 max-w-3xl font-display text-cream [font-size:clamp(2rem,5vw,3.6rem)] leading-[1.05]">
-        Häufige Fragen.
+    <Section id="faq" tone="teal-deep">
+      <Eyebrow light>Häufige Fragen</Eyebrow>
+      <h2 className="mt-7 font-serif text-[clamp(2rem,4.5vw,4rem)] font-normal leading-[1.05] text-cream">
+        Bevor du anrufst.
       </h2>
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mt-16 max-w-3xl">
         {ITEMS.map((item, i) => {
           const isOpen = open === i
           return (
-            <div key={i} className="border-b border-cream/12">
+            <div key={i} className="border-b border-champagne/20">
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
                 className="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-champagne"
               >
-                <span className="font-display text-cream [font-size:clamp(1.2rem,2.2vw,1.6rem)]">
+                <span className="font-serif text-xl font-normal text-cream">
                   {item.q}
                 </span>
                 <span
@@ -64,21 +64,21 @@ export default function FAQ() {
                     <path
                       d="M10 4v12M4 10h12"
                       stroke="currentColor"
-                      strokeWidth="1.4"
+                      strokeWidth="1.3"
                       strokeLinecap="round"
                     />
                   </svg>
                 </span>
               </button>
               <div
-                className="grid transition-all duration-400 ease-out"
+                className="grid transition-all duration-300 ease-out"
                 style={{
                   gridTemplateRows: isOpen ? "1fr" : "0fr",
                   opacity: isOpen ? 1 : 0,
                 }}
               >
                 <div className="overflow-hidden">
-                  <p className="max-w-2xl pb-7 font-body text-[0.95rem] leading-relaxed text-cream/65">
+                  <p className="max-w-2xl pb-6 font-sans font-light leading-relaxed text-cream/70">
                     {item.a}
                   </p>
                 </div>

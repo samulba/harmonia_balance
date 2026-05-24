@@ -1,49 +1,54 @@
 import { Section, Eyebrow } from "./ui"
+import ScrollReveal from "./ScrollReveal"
 
 const STEPS = [
   {
     no: "01",
     title: "Kontakt",
-    body: "Du meldest dich kurz — per Formular, Mail oder Telefon. Ein, zwei Sätze zu deinem Anliegen genügen. Wir finden gemeinsam einen Termin.",
+    body: "Du schreibst oder rufst an. Wir melden uns innerhalb von zwei Werktagen.",
   },
   {
     no: "02",
     title: "Erstgespräch",
-    body: "90 Minuten Zeit, um anzukommen und zu schauen, worum es geht. Ganz unverbindlich klären wir, ob die Zusammenarbeit für dich stimmig ist.",
+    body: "90 Minuten in der Praxis. Wir lernen uns kennen, du erzählst, wir schauen ob es passt.",
   },
   {
     no: "03",
     title: "Begleitung",
-    body: "Wenn es passt, beginnt die regelmäßige Arbeit. Tempo und Dauer bestimmst du mit — so lange, wie es dir gut tut.",
+    body: "Wenn beide weitermachen möchten, vereinbaren wir die nächsten Termine.",
   },
 ]
 
 export default function Ablauf() {
   return (
-    <Section id="ablauf" className="bg-teal">
-      <Eyebrow>Ablauf — 03</Eyebrow>
-      <h2 className="mb-16 max-w-3xl font-display text-cream [font-size:clamp(2rem,5vw,3.6rem)] leading-[1.05]">
-        Wie der Weg beginnt.
-      </h2>
+    <Section id="ablauf" tone="cream">
+      <ScrollReveal>
+        <Eyebrow>Ablauf — 03 Schritte</Eyebrow>
+        <h2 className="mt-7 max-w-3xl font-serif text-[clamp(2rem,4.5vw,4rem)] font-normal leading-[1.05] text-teal">
+          So beginnen wir.
+        </h2>
+      </ScrollReveal>
 
-      <div className="grid grid-cols-3 gap-10 max-[760px]:grid-cols-1 max-[760px]:gap-12">
+      <div className="mt-16 grid grid-cols-3 gap-12 max-[760px]:grid-cols-1 max-[760px]:gap-14">
         {STEPS.map((s, i) => (
-          <div key={s.no} className="relative">
-            <div className="mb-6 flex items-center gap-4">
-              <span className="font-display text-champagne [font-size:clamp(2.4rem,4vw,3.4rem)] leading-none">
-                {s.no}
-              </span>
-              {i < STEPS.length - 1 && (
-                <span className="h-px flex-1 bg-gradient-to-r from-champagne/50 to-transparent max-[760px]:hidden" />
-              )}
-            </div>
-            <h3 className="font-display text-cream [font-size:clamp(1.5rem,2.4vw,2rem)] leading-tight">
+          <ScrollReveal
+            key={s.no}
+            delay={(i + 1) as 1 | 2 | 3}
+            className="relative"
+          >
+            {i < STEPS.length - 1 && (
+              <span className="absolute left-[4.5rem] top-7 h-px w-[calc(100%-3rem)] bg-champagne/50 max-[760px]:hidden" />
+            )}
+            <span className="font-serif text-[4rem] font-light leading-none text-champagne">
+              {s.no}
+            </span>
+            <h3 className="mt-4 font-serif text-[1.75rem] font-normal leading-tight text-teal">
               {s.title}
             </h3>
-            <p className="mt-4 max-w-xs font-body text-[0.95rem] leading-relaxed text-cream/65">
+            <p className="mt-3 max-w-xs font-sans font-light leading-relaxed text-teal/70">
               {s.body}
             </p>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </Section>

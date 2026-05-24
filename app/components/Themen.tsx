@@ -1,73 +1,110 @@
 import { Section, Eyebrow } from "./ui"
+import ScrollReveal from "./ScrollReveal"
+
+const ICON = "h-6 w-6 text-champagne"
+const sp = { stroke: "currentColor", strokeWidth: 1.2, fill: "none" } as const
 
 const THEMEN = [
   {
-    no: "01",
     title: "Stress & Überlastung",
-    body: "Wenn der Alltag zu viel wird und die Anspannung nicht mehr abfällt — wir schauen gemeinsam, woher der Druck kommt und was dir Entlastung verschafft.",
+    body: "Anhaltende Anspannung, Schlafprobleme, das Gefühl, ständig angeschaltet zu sein.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <path
+          d="M2 14c2-3 4-3 6 0s4 3 6 0 4-3 6 0"
+          {...sp}
+          strokeLinecap="round"
+        />
+        <path d="M2 9c2-3 4-3 6 0s4 3 6 0 4-3 6 0" {...sp} strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
-    no: "02",
     title: "Körper & Wahrnehmung",
-    body: "Den eigenen Körper wieder spüren und ernst nehmen. Ein achtsamer Zugang zu dem, was Anspannung und Ruhe für dich bedeuten.",
+    body: "Wenn der Körper Signale sendet, die schwer einzuordnen sind. Achtsamkeit für die eigenen Empfindungen.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <circle cx="12" cy="12" r="9" {...sp} />
+        <circle cx="12" cy="12" r="3.5" {...sp} />
+      </svg>
+    ),
   },
   {
-    no: "03",
     title: "Lebensphasen & Übergänge",
-    body: "Neuanfänge, Abschiede, Wendepunkte. Phasen, in denen vieles in Bewegung ist und Orientierung guttut.",
+    body: "Berufswechsel, neue Lebensabschnitte, Trennung, Verlust — Phasen, in denen Orientierung guttut.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <path d="M4 18 L20 6" {...sp} strokeLinecap="round" />
+        <path d="M14 6 H20 V12" {...sp} strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
   },
   {
-    no: "04",
     title: "Anhaltende Belastungen",
-    body: "Themen, die dich länger begleiten und an denen du etwas verändern möchtest — in deinem Tempo, ohne Druck.",
+    body: "Themen, die schon länger mitschwingen und Raum für Klärung brauchen.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <path d="M3 16a9 9 0 0 1 18 0" {...sp} strokeLinecap="round" />
+        <path d="M7 16a5 5 0 0 1 10 0" {...sp} strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
-    no: "05",
     title: "Schlaf & Erholung",
-    body: "Zur Ruhe finden und Erholung wieder zulassen. Wir betrachten deine Muster rund um Anspannung, Pausen und Schlaf.",
+    body: "Den eigenen Rhythmus wiederfinden. Was Erholung wirklich bedeutet — für dich.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <path
+          d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"
+          {...sp}
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
   {
-    no: "06",
     title: "Selbstklärung & Orientierung",
-    body: "Sortieren, was wirklich wichtig ist. Klarheit über Entscheidungen, Werte und die eigene Richtung gewinnen.",
+    body: "Innere Sortierung. Was ist wichtig, was nicht. Was passt zu mir, was nicht mehr.",
+    icon: (
+      <svg viewBox="0 0 24 24" className={ICON}>
+        <circle cx="6" cy="12" r="1.4" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+        <circle cx="18" cy="12" r="1.4" fill="currentColor" stroke="none" />
+      </svg>
+    ),
   },
 ]
 
 export default function Themen() {
   return (
-    <Section id="themen" className="bg-teal">
-      <Eyebrow>Themen — 06</Eyebrow>
-      <h2 className="mb-14 max-w-3xl font-display text-cream [font-size:clamp(2rem,5vw,3.6rem)] leading-[1.05]">
-        Womit Menschen zu uns kommen.
-      </h2>
+    <Section id="themen" tone="cream-warm">
+      <ScrollReveal>
+        <Eyebrow>Themen — 06</Eyebrow>
+        <h2 className="mt-7 max-w-3xl font-serif text-[clamp(2rem,4.5vw,4rem)] font-normal leading-[1.05] text-teal">
+          Womit Menschen zu uns kommen.
+        </h2>
+        <p className="mt-4 max-w-xl font-sans font-light text-teal/70">
+          Sechs Bereiche, in denen Menschen Klärung suchen.
+        </p>
+      </ScrollReveal>
 
-      <div className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 max-[860px]:grid-cols-2 max-[560px]:grid-cols-1">
-        {THEMEN.map((t) => (
-          <div
-            key={t.no}
-            className="group bg-teal p-8 transition-colors duration-500 hover:bg-teal-deep sm:p-10"
+      <div className="mt-16 grid grid-cols-3 gap-x-12 gap-y-2 max-[860px]:grid-cols-2 max-[560px]:grid-cols-1">
+        {THEMEN.map((t, i) => (
+          <ScrollReveal
+            key={t.title}
+            delay={((i % 3) + 1) as 1 | 2 | 3}
+            className="border-b border-teal/15 py-9"
           >
-            <span
-              className="text-[0.65rem] text-champagne/70 label-mono"
-              style={{ letterSpacing: "0.3em" }}
-            >
-              {t.no}
-            </span>
-            <h3 className="mt-5 font-display text-cream [font-size:clamp(1.4rem,2.4vw,1.9rem)] leading-tight">
+            <span className="text-champagne">{t.icon}</span>
+            <h3 className="mt-6 font-serif text-2xl font-normal leading-snug text-teal">
               {t.title}
             </h3>
-            <p className="mt-4 font-body text-[0.92rem] leading-relaxed text-cream/60">
+            <p className="mt-3 font-sans text-sm font-light leading-relaxed text-teal/70">
               {t.body}
             </p>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
-
-      <p className="mt-8 max-w-2xl font-body text-sm leading-relaxed text-cream/45">
-        Hinweis: Diese Begleitung ist kein Ersatz für medizinische oder
-        psychotherapeutische Versorgung. Bei akuten Beschwerden wende dich bitte
-        an entsprechende Fachstellen.
-      </p>
     </Section>
   )
 }

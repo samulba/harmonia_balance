@@ -2,35 +2,29 @@ export default function Statement() {
   return (
     <section
       id="statement"
-      className="relative flex min-h-[70vh] items-center overflow-hidden px-6 py-32 sm:px-10"
+      className="relative flex min-h-[60vh] items-center justify-center overflow-hidden px-[clamp(20px,5vw,80px)] py-[clamp(140px,18vw,240px)] text-center"
     >
-      {/* Water background (ruhiges Wasser) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, rgba(10,40,50,0.82), rgba(15,58,71,0.78)), url('/images/statement-water.png')",
+            "linear-gradient(rgba(10,40,50,0.80), rgba(10,40,50,0.80)), url('/images/statement-water.png')",
         }}
-      />
-      <div
-        className="absolute inset-0 z-[1]"
-        style={{
-          background:
-            "radial-gradient(100% 100% at 50% 50%, transparent 30%, rgba(10,40,50,0.7) 100%)",
-        }}
+        role="img"
+        aria-label="Ruhige, golden schimmernde Wasseroberfläche"
       />
 
-      <blockquote className="relative z-10 mx-auto w-full max-w-[1320px]">
-        <p className="font-display italic font-light text-cream [font-size:clamp(2.4rem,6vw,5rem)] leading-[1.1]">
-          Veränderung beginnt da,
-          <br className="hidden sm:block" /> wo Eile aufhört.
+      <blockquote className="relative z-10 mx-auto max-w-4xl">
+        <p className="font-serif text-[clamp(2.4rem,6vw,5rem)] font-light italic leading-[1.15] text-cream">
+          Veränderung beginnt da, wo Eile aufhört.
         </p>
-        <footer
-          className="mt-10 text-[0.7rem] text-champagne label-mono"
-          style={{ letterSpacing: "0.32em" }}
+        <span className="mx-auto mt-12 block h-px w-[60px] bg-champagne" />
+        <p
+          className="mt-6 text-[11px] text-champagne label-mono"
+          style={{ letterSpacing: "0.36em" }}
         >
-          Harmonia Balance · München
-        </footer>
+          — Praxis-Motto
+        </p>
       </blockquote>
     </section>
   )

@@ -4,7 +4,7 @@ import "./globals.css"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
@@ -12,7 +12,7 @@ const cormorant = Cormorant_Garamond({
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["300", "400", "500"],
   variable: "--font-dm-sans",
   display: "swap",
 })
@@ -26,26 +26,15 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://harmoniabalance.de"),
-  title: {
-    default: "Harmonia Balance — Systemische Begleitung in München",
-    template: "%s · Harmonia Balance",
-  },
+  title: "Harmonia Balance — Praxis für systemische Begleitung in München",
   description:
-    "Systemische Begleitung in München. Eine Praxis, die Zeit nimmt — für Klärung, Reflexion und Orientierung. Selbstzahler-Praxis, kein Heilversprechen.",
-  keywords: [
-    "systemische Begleitung",
-    "München",
-    "Achtsamkeit",
-    "Reflexion",
-    "Selbstklärung",
-    "Orientierung",
-  ],
+    "Eine Praxis, die Zeit nimmt. Systemische Begleitung — individuell abgestimmt, ohne Eile. In zentraler Münchner Lage.",
   openGraph: {
-    title: "Harmonia Balance — Systemische Begleitung in München",
+    title: "Harmonia Balance — Praxis für systemische Begleitung in München",
     description:
-      "Eine Praxis, die Zeit nimmt. Systemische Begleitung für Klärung, Reflexion und Orientierung.",
-    locale: "de_DE",
+      "Eine Praxis, die Zeit nimmt. Systemische Begleitung — individuell abgestimmt, ohne Eile. In zentraler Münchner Lage.",
     type: "website",
+    locale: "de_DE",
   },
   robots: { index: true, follow: true },
 }
@@ -60,7 +49,7 @@ export default function RootLayout({
       lang="de"
       className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
-      <body>{children}</body>
+      <body className="bg-cream font-sans text-teal">{children}</body>
     </html>
   )
 }
