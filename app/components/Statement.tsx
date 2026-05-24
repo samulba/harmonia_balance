@@ -4,12 +4,12 @@ export default function Statement() {
       id="statement"
       className="relative flex min-h-[70vh] items-center overflow-hidden px-6 py-32 sm:px-10"
     >
-      {/* Water background. TODO: statement-water.jpg ergänzen (ruhiges Wasser) */}
+      {/* Water background (ruhiges Wasser) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, rgba(10,40,50,0.82), rgba(15,58,71,0.78)), url('/images/statement-water.jpg')",
+            "linear-gradient(135deg, rgba(10,40,50,0.82), rgba(15,58,71,0.78)), url('/images/statement-water.png')",
         }}
       />
       <div

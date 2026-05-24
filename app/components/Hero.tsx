@@ -18,14 +18,12 @@ export default function Hero() {
       id="hero"
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-teal-deep"
     >
-      {/* Background image with Ken-Burns. TODO: praxis-room.jpg ergänzen (Sessel/Eukalyptus, KEINE medizinischen Motive) */}
+      {/* Background image with Ken-Burns (Sessel/Eukalyptus, ruhiger Raum) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "linear-gradient(135deg, #0a2832 0%, #0f3a47 55%, #123e4b 100%), url('/images/praxis-room.jpg')",
-            backgroundBlendMode: "multiply",
+            backgroundImage: "url('/images/praxis-room.png')",
             animation: "kenBurns 36s ease-in-out infinite",
             willChange: "transform",
           }}

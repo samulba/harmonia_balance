@@ -1,10 +1,10 @@
 # Bild-Assets
 
-Hier gehören die Hero-/Sektion-Bilder rein:
+- `praxis-room.png`     — Hero (Sessel/Eukalyptus, ruhiger Raum). ✅ vorhanden
+- `statement-water.png` — Statement-Hintergrund (ruhiges Wasser). ✅ vorhanden
 
-- `praxis-room.jpg`   — Hero (Sessel/Eukalyptus, ruhiger Praxisraum).
-                         WICHTIG: KEINE medizinischen Motive (Nadeln, Lupe, Gerät) → HWG-Verstoß.
-- `methodik-tools.jpg`— Methodik-Sektion.
-- `statement-water.jpg`— Statement-Hintergrund (Wasser/ruhig).
+WICHTIG (HWG): KEINE medizinischen Motive verwenden (Nadeln, Lupe, Gerät).
+Das ursprünglich hochgeladene Bild mit Akupunktur-Nadeln + Lupe wurde
+bewusst entfernt.
 
-Fehlen die Dateien, greifen im Code Solid-Color-Platzhalter (teal-Verlauf).
+Die Methodik-Sektion nutzt aktuell kein Hintergrundbild (Karten auf teal).
