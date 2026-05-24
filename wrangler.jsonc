@@ -1,0 +1,8 @@
+{
+  // Cloudflare Workers — statische Auslieferung des Next.js-Exports (out/).
+  "name": "harmonia_balance",
+  "compatibility_date": "2025-05-01",
+  "assets": {
+    "directory": "./out"
+  }
+}
